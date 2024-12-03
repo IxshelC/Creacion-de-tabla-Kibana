@@ -1,0 +1,103 @@
+## **Paso 1: Ingresa al Dashboard**
+1. Abre el dashboard en el que deseas incluir tu tabla. Si aún no tienes un dashboard creado, configura uno nuevo desde la opción **"Dashboard"** en el menú lateral.
+
+---
+
+## **Paso 2: Inicia la Creación de la Visualización**
+2. Haz clic en el botón **"Create visualization"**. Esto abrirá una ventana donde podrás elegir el tipo de visualización.
+3. Selecciona el **Data View** que contiene los datos que deseas mostrar. Este paso es crucial para definir la fuente de datos que alimentará tu tabla.
+   ![Botón Create Visualization](Imagenes/Botón.gif)
+
+---
+
+## **Paso 3: Selecciona el Tipo de Visualización**
+4. Elige **"Table"** como el tipo de visualización. Esto mostrará los datos en formato de tabla.
+   ![Tabla](./Imagenes/Tabla.gif)
+
+---
+
+## **Paso 4: Asigna los Campos de la Tabla**
+- **Rows (Filas):** Esta sección te permite agregar los campos para agrupar los datos. Por ejemplo, si añades un solo campo, se generará un listado de valores únicos, y si agregas varios, Kibana agrupará automáticamente los datos por la combinación de esos valores.
+- **Metrics (Métricas):** Aquí debes colocar los campos cuyo valor cambiará dependiendo del análisis, como la suma, el promedio o el conteo de registros relacionados con las filas seleccionadas.
+
+**Nota Importante:** Cuantos más campos añadas en **Rows**, más específica será la agrupación, lo que podría generar filas con pocos datos si los campos son muy detallados.
+![Asignar Campos](./Imagenes/AsignarCampos.gif)
+
+---
+
+### **Opciones y Configuraciones en Rows y Metrics en Kibana**
+#### **Rows (Filas)**
+Esta sección define cómo se agrupan los datos en las filas de tu tabla. Las opciones principales son:
+1. **Data Functions (Funciones de Datos):**
+   - **Date Histogram:** Agrupa por intervalos de tiempo (e.g., diario, semanal).
+   - **Filters:** Aplica filtros personalizados.
+   - **Top Values:** Muestra los valores más frecuentes en un campo.
+2. **Fields (Campos):** Selecciona campos clave (por ejemplo, `callUserName.keyword`) para agrupar los datos.
+3. **Number of Values (Cantidad de Valores):** Define cuántos valores únicos mostrar.
+4. **Rank By (Clasificar Por):** Ordena las filas según un campo numérico.
+5. **Rank Direction (Dirección de Clasificación):** Orden ascendente o descendente.
+6. **Collapse By (Colapsar Por):** Define si los datos deben consolidarse o mostrarse en detalle.
+7. **Advanced Options (Opciones Avanzadas):** Ofrece configuraciones adicionales, como filtros dinámicos.
+8. **Appearance (Apariencia):**
+   - Cambia el título de las columnas, alinea los datos, o esconde columnas innecesarias.
+
+#### **Metrics (Métricas)**
+La sección de **Metrics** configura y calcula las métricas basadas en los datos.
+1. **Configuración Básica:**
+   - **Value:** Valor resultante de la métrica.
+   - **Method:** Método de cálculo (e.g., función rápida o fórmula personalizada).
+2. **Métodos de Cálculo:**
+   - **Quick Function:** Funciones predefinidas como `Average` o `Count`.
+   - **Formula:** Permite escribir fórmulas personalizadas.
+3. **Funciones Disponibles:**
+   - **Average:** Calcula el promedio.
+   - **Count:** Cuenta el número de elementos.
+   - **Sum:** Suma los valores.
+   - **Unique count:** Cuenta elementos únicos.
+4. **Personalización del Campo:**
+   - **Field:** Selecciona el campo para calcular.
+   - **Value format:** Configura cómo se muestran los valores (e.g., porcentaje, decimales).
+
+---
+
+## 🗒️ **Explicación de las Opciones Visuales**
+Las **Visual Options** permiten personalizar la apariencia de las tablas y gráficos.
+
+1. **Header Row Height (Altura de la Fila de Encabezado):**
+   - **Single:** Altura estándar.
+   - **Auto Fit:** Ajuste automático según el contenido.
+   - **Custom:** Altura personalizada.
+
+2. **Cell Row Height (Altura de las Filas de Celdas):**
+   - **Single:** Altura estándar.
+   - **Auto Fit:** Ajuste dinámico según el contenido.
+   - **Custom:** Altura personalizada.
+
+3. **Paginate Table (Paginación de la Tabla):** Habilita la paginación para mejorar la navegación en tablas grandes.
+
+   ![Opciones Visuales](./Imagenes/OpVisuales.gif)
+
+---
+
+## **Paso 5: Ejemplo de Creación de Tabla de "Llamadas por Usuarios"**
+- **Rows:** Se añade el campo `callUserName.keyword` para agrupar por usuario.
+- **Metrics:** Se añade el campo `records` para mostrar el número total de llamadas.
+  ![Campos](./Imagenes/Campos.gif)
+  - Fórmula: `count()/overall_sum(count())` para calcular el porcentaje de llamadas.
+  ![Porcentaje](./Imagenes/Porcentaje.gif)
+  - **Llamadas Internas:** Filtro `summaryCall.keyword:"Interna"` y la función **Count**.
+  ![Internas](./Imagenes/Internas.gif)
+  - **Llamadas Entrantes:** Filtro `summaryCall.keyword:"Entrante"` y la función **Count**.
+  ![Entrantes](./Imagenes/Entrantes.gif)
+  - **Llamadas Salientes:** Filtro `summaryCall.keyword:"Saliente"` y la función **Count**.
+  ![Salientes](./Imagenes/Salientes.gif)
+
+---
+
+## **Paso 6: Guarda y Visualiza**
+Cuando termines de configurar la tabla, guarda los cambios seleccionando **Save and return**.
+Puedes ajustar la tabla para que las columnas se visualicen correctamente.
+
+   ![Guardar Tabla](./Imagenes/GuardarTabla.gif)
+
+---

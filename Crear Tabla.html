@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Creación de Tablas en Kibana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        p, li {
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .note {
+            font-style: italic;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guía de Creación de Tablas en Kibana</h1>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>Paso 1: Ingresa al Dashboard</h2>
+            <ul>
+                <li>Abre el dashboard en el que deseas incluir tu tabla. Si aún no tienes un dashboard creado, configura uno nuevo desde la opción <strong>"Dashboard"</strong> en el menú lateral.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Paso 2: Inicia la Creación de la Visualización</h2>
+            <ul>
+                <li>Haz clic en el botón <strong>"Create visualization"</strong>. Esto abrirá una ventana donde podrás elegir el tipo de visualización.</li>
+                <li>Selecciona el <strong>Data View</strong> que contiene los datos que deseas mostrar. Este paso es importante para definir la fuente de datos que alimentará tu tabla.</li>
+            </ul>
+            <img src="Imagenes/Botón.gif" alt="Botón Create Visualization">
+        </div>
+
+        <div class="section">
+            <h2>Paso 3: Selecciona el Tipo de Visualización</h2>
+            <ul>
+                <li>Elige <strong>"Table"</strong> como el tipo de visualización. Esto mostrará los datos en formato de tabla.</li>
+            </ul>
+            <img src="./Imagenes/Tabla.gif" alt="Tabla">
+        </div>
+
+        <div class="section">
+            <h2>Paso 4: Asigna los Campos de la Tabla</h2>
+            <p><strong>Rows (Filas):</strong> Esta sección te permite agregar los campos para agrupar los datos. Por ejemplo, si añades un solo campo, se generará un listado de valores únicos, y si agregas varios, Kibana agrupará automáticamente los datos por la combinación de esos valores.</p>
+            <p><strong>Metrics (Métricas):</strong> Aquí debes colocar los campos cuyo valor cambiará dependiendo del análisis, como la suma, el promedio o el conteo de registros relacionados con las filas seleccionadas.</p>
+            <p class="note">Nota Importante: Cuantos más campos añadas en <strong>Rows</strong>, más específica será la agrupación, lo que podría generar filas con pocos datos si los campos son muy detallados.</p>
+            <img src="./Imagenes/AsignarCampos.gif" alt="Asignar Campos">
+        </div>
+
+        <div class="section">
+            <h3>Opciones y Configuraciones en Rows y Metrics en Kibana</h3>
+            <h4>Rows (Filas)</h4>
+            <ul>
+                <li><strong>Data Functions:</strong> Agrupa los datos por funciones como <em>Date Histogram</em>, <em>Filters</em>, o <em>Top Values</em>.</li>
+                <li><strong>Fields:</strong> Selecciona campos clave para agrupar los datos.</li>
+                <li><strong>Rank By:</strong> Clasifica las filas según un campo numérico.</li>
+            </ul>
+            <h4>Metrics (Métricas)</h4>
+            <ul>
+                <li><strong>Quick Function:</strong> Funciones predefinidas como <em>Average</em>, <em>Count</em>, o <em>Sum</em>.</li>
+                <li><strong>Formula:</strong> Permite escribir fórmulas personalizadas.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Paso 5: Ejemplo de Creación de Tabla de "Llamadas por Usuarios"</h2>
+            <ul>
+                <li><strong>Rows:</strong> Se añade el campo <code>callUserName.keyword</code> para agrupar por usuario.</li>
+                <li><strong>Metrics:</strong> Se añade el campo <code>records</code> para mostrar el número total de llamadas.</li>
+            </ul>
+            <img src="./Imagenes/Campos.gif" alt="Campos">
+        </div>
+
+        <div class="section">
+            <h2>Paso 6: Guarda y Visualiza</h2>
+            <ul>
+                <li>Cuando termines de configurar la tabla, guarda los cambios seleccionando <strong>Save and return</strong>.</li>
+                <li>Puedes ajustar la tabla para que las columnas se visualicen correctamente.</li>
+            </ul>
+            <img src="./Imagenes/GuardarTabla.gif" alt="Guardar Tabla">
+        </div>
+    </main>
+</body>
+</html>
