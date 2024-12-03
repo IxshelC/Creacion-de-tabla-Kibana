@@ -53,7 +53,7 @@
     </ol>
     <p>
         Puedes consultar un proceso más detallado en este enlace:
-        <a href="CreacionTabla/Crear Tabla.html" target="_blank">
+        <a href="Crear Tabla.html" target="_blank">
             Proceso para crear una tabla en Kibana
         </a>
     </p>
